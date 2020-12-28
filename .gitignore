@@ -1,0 +1,25 @@
+# credentials
+
+# dependencies
+/themes/academy/node_modules
+
+# testing
+
+# production
+
+# misc
+/plugins
+/upgrade
+/uploads
+/themes/twentynineteen
+/themes/twentytwenty
+/themes/twentyseventeen
+/themes/academy/inc
+/themes/academy/package.json
+/themes/academy/package-lock.json
+/themes/academy/webpack.config.js
+/themes/academy/screenshot.png
+/themes/academy/images/
+/themes/academy/js/
+/themes/academy/css/
+index.php
