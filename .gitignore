@@ -1,7 +1,7 @@
 # credentials
 
 # dependencies
-/themes/academy/node_modules
+/themes/coding-academy/node_modules
 
 # testing
 
@@ -11,14 +11,12 @@
 /plugins
 /upgrade
 /uploads
-/themes/twentynineteen
-/themes/twentytwenty
-/themes/twentyseventeen
 /themes/coding-academy/inc
-/themes/coding-academy/package.json
+# /themes/coding-academy/package.json
 /themes/coding-academy/package-lock.json
-/themes/coding-academy/webpack.config.js
+# /themes/coding-academy/webpack.config.js
 /themes/coding-academy/screenshot.png
+/themes/coding-academy/bundled-assets/
 /themes/coding-academy/images/
 /themes/coding-academy/js/
 /themes/coding-academy/css/
