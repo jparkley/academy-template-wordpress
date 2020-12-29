@@ -1,11 +1,9 @@
-<?php get_header(); ?>
-    <div class="page-banner">
-      <div class="page-banner__bg-image" style="background-image: url(<?php echo get_theme_file_uri('/images/library-hero.jpg'); ?>);"></div>
-      <div class="page-banner__content container container--narrow">
-        <h2 class="page-banner__title">Our Programs</h2>
-        <div class="page-banner__intro"><p>Workshops and Events</p></div>        
-      </div>
-    </div>
+<?php get_header(); 
+      page_banner(array(
+        'title' => 'Our Programs',
+        'subtitle' => 'There is something for everyone.  Have a look around.'
+      ));
+?>
     <div class="container container--narrow page-section">    
     <ul>
         <?php

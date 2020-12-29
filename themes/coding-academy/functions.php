@@ -21,6 +21,10 @@ function academy_features() {
     register_nav_menu('footerMenuTwo', 'Footer Menu Two');
     register_nav_menu('headerMenuLocation', 'Header Menu Location');
     add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_image_size('professor-horizontal', 400, 260, true); // true: crop in the center
+    add_image_size('professor-vertical', 480, 650, true);
+    add_image_size('banner', 1500, 350, true);
 }
 
 add_action('after_setup_theme', 'academy_features');
@@ -48,3 +52,25 @@ function academy_adjust_queries($query) {
 }
 
 add_action('pre_get_posts', 'academy_adjust_queries');
+
+
+function page_banner($args = NULL) {
+    if (!$args['title']) { $args['title'] = get_the_title(); }
+    if (!$args['subtitle']) { $args['subtitle'] = get_field('page_banner_subtitle'); }
+    if (!$args['image']) { 
+        if (get_field('page_banner_background_image')) {
+            $args['image'] = get_field('page_banner_background_image')['sizes']['banner']; 
+        } else {
+        $args['image'] = get_theme_file_uri('/images/library-hero.jpg'); 
+        }
+    }
+    ?>
+    <div class="page-banner">
+    <div class="page-banner__bg-image" style="background-image: url(<?php echo $args['image'];?>);"></div>
+    <div class="page-banner__content container container--narrow">
+      <h1 class="page-banner__title"><?php echo $args['title'] ?></h1>
+      <div class="page-banner__intro"><p><?php echo $args['subtitle'] ?></p></div>
+    </div>  
+  </div>
+<?php    
+}
