@@ -18,6 +18,6 @@
 /themes/coding-academy/screenshot.png
 /themes/coding-academy/bundled-assets/
 /themes/coding-academy/images/
-/themes/coding-academy/js/
+#/themes/coding-academy/js/
 /themes/coding-academy/css/
 index.php
