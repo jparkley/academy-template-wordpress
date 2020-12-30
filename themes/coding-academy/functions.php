@@ -1,4 +1,5 @@
 <?php
+
 function academy_files() {
     
     // NULL-> no dependencies, true->put it in footer, not in header
@@ -10,9 +11,13 @@ function academy_files() {
         wp_enqueue_script('main-academy-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);    
     } else {
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.9678b4003190d41dd438.js'), NULL, '1.0', true);
-        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.c911769cf263b1c305ca.js'), NULL, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.c911769cf263b1c305ca.css'));
+        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.4ab2ca16667851b485ab.js'), NULL, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.4ab2ca16667851b485ab.css'));
     }
+    // args (handle/name of main js, name to use in  js, array of data that we want available in js )
+    wp_localize_script('main-academy-js', 'academyData', array(
+        'root_url' => get_site_url()
+    )); 
 }
 add_action('wp_enqueue_scripts', 'academy_files');
 
