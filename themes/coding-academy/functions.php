@@ -1,4 +1,12 @@
 <?php
+require get_theme_file_path('/inc/search-route.php');
+
+function academy_custom_rest() {
+    register_rest_field('post', 'authorName', array(
+        'get_callback' => function() { return get_the_author(); }
+    ));
+}
+add_action('rest_api_init', 'academy_custom_rest');
 
 function academy_files() {
     
@@ -11,8 +19,8 @@ function academy_files() {
         wp_enqueue_script('main-academy-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);    
     } else {
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.9678b4003190d41dd438.js'), NULL, '1.0', true);
-        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.4ab2ca16667851b485ab.js'), NULL, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.4ab2ca16667851b485ab.css'));
+        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.02007734402f5cb7fa1e.js'), NULL, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.02007734402f5cb7fa1e.css'));
     }
     // args (handle/name of main js, name to use in  js, array of data that we want available in js )
     wp_localize_script('main-academy-js', 'academyData', array(
