@@ -1,4 +1,4 @@
-<div class="event-summary">
+        <div class="event-summary">
                     <a class="event-summary__date t-center" href="#">
                     <span class="event-summary__month"><?php 
                     $eventDate = new DateTime(get_field('event_date'));
@@ -11,4 +11,4 @@
                     if (has_excerpt()) { echo get_the_excerpt(); }  // the_excerpt(): adds its own format, not working for our site
                     else { echo wp_trim_words(get_the_content(), 20); } ?> <a href="<?php the_permalink(); ?>" class="nu gray">Learn more</a></p>
                     </div>
-                </div>
+        </div>

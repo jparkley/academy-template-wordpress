@@ -19,8 +19,8 @@ function academy_files() {
         wp_enqueue_script('main-academy-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);    
     } else {
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.9678b4003190d41dd438.js'), NULL, '1.0', true);
-        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.3c573e44749a86425a40.js'), NULL, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.3c573e44749a86425a40.css'));
+        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.6d3317f55dff24b12f4f.js'), NULL, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.6d3317f55dff24b12f4f.css'));
     }
     // args (handle/name of main js, name to use in  js, array of data that we want available in js )
 print_r(get_site_url());

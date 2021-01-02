@@ -25,6 +25,35 @@ class Search {
     }
     
     // Methods
+    openOverlay() {
+        this.searchOverlay.addClass("search-overlay--active");       
+        $("body").addClass('body-no-scroll');
+        // waiting is needed because it's goint to focus before the  overlay is loaded
+        setTimeout(() => this.searchField.focus(), 301);        
+        this.isOverlayOpen = true;
+        this.searchField.val('');
+        this.resultsDiv.html('');
+        return false; // To prevent default behavior of 'a' link elements
+    }
+
+    closeOverlay() {
+        this.searchOverlay.removeClass("search-overlay--active");
+        $("body").removeClass('body-no-scroll')
+        this.isOverlayOpen = false;
+    }
+
+    keyPressDispatcher(e) {
+        if (e.keyCode == 83 && !this.isOverlayOpen && !$("input, textarea").is(':focus')) { 
+            // When the key 's' is pressed, open the overlay search
+            // Also, there isn't another input or textarea focused on waiting for user input
+            this.openOverlay();        
+        }
+        if (e.keyCode == 27 && this.isOverlayOpen) { // When the key 'esc' is pressed, close the overlay search
+            this.closeOverlay();     
+        }     
+
+    }    
+
     typingLogic() {
         if (this.searchField.val() != this.previousValue) {
             clearTimeout(this.typingTimer);
@@ -108,34 +137,6 @@ class Search {
         // }, () => {
         //     this.resultsDiv.html('<p>Unexpected error.  Please try again.</p>')
         // });        
-    }
-
-    keyPressDispatcher(e) {
-        if (e.keyCode == 83 && !this.isOverlayOpen && !$("input, textarea").is(':focus')) { 
-            // When the key 's' is pressed, open the overlay search
-            // Also, there isn't another input or textarea focused on waiting for user input
-            this.openOverlay();        
-        }
-        if (e.keyCode == 27 && this.isOverlayOpen) { // When the key 'esc' is pressed, close the overlay search
-            this.closeOverlay();     
-        }     
-
-    }
-
-    openOverlay() {
-        this.searchOverlay.addClass("search-overlay--active");       
-        $("body").addClass('body-no-scroll');
-        // waiting is needed because it's goint to focus before the  overlay is loaded
-        setTimeout(() => this.searchField.focus(), 301);        
-        this.isOverlayOpen = true;
-        this.searchField.val('');
-        this.resultsDiv.html('');
-    }
-
-    closeOverlay() {
-        this.searchOverlay.removeClass("search-overlay--active");
-        $("body").removeClass('body-no-scroll')
-        this.isOverlayOpen = false;
     }
 
     addSearchHTML() {
