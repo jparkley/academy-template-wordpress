@@ -3,7 +3,7 @@
 function academy_post_types() {
     // Custom post type registration: Event
     register_post_type('event', array(
-        'show_in_rest' => true, // This post type is available within REST API -> supports modern editor in admin.
+        'show_in_rest' => true, // This post type is available within REST API
         'supports' => array('title','editor', 'excerpt'),
         'has_archive' => true,
         'rewrite' => array(
