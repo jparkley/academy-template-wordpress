@@ -11,7 +11,7 @@
 /plugins
 /upgrade
 /uploads
-/themes/coding-academy/inc
+# /themes/coding-academy/inc
 # /themes/coding-academy/package.json
 /themes/coding-academy/package-lock.json
 # /themes/coding-academy/webpack.config.js
