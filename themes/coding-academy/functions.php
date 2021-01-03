@@ -19,11 +19,10 @@ function academy_files() {
         wp_enqueue_script('main-academy-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);    
     } else {
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.9678b4003190d41dd438.js'), NULL, '1.0', true);
-        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.6d3317f55dff24b12f4f.js'), NULL, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.6d3317f55dff24b12f4f.css'));
+        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.abb848f25ecb7a1f0310.js'), NULL, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.abb848f25ecb7a1f0310.css'));
     }
     // args (handle/name of main js, name to use in  js, array of data that we want available in js )
-print_r(get_site_url());
     wp_localize_script('main-academy-js', 'academyData', array(
         'root_url' => get_site_url()
     )); 
@@ -88,3 +87,38 @@ function page_banner($args = NULL) {
   </div>
 <?php    
 }
+
+// Redirect subscribers out of admin and onto homepage
+function redirectSubsToFrontend() {
+    $ourCurrentUser = wp_get_current_user();
+    if (count($ourCurrentUser->roles)==1 && $ourCurrentUser->roles[0] == 'subscriber') {
+        wp_redirect(site_url('/'));
+        exit;
+    }
+}
+add_action('admin_init', 'redirectSubsToFrontend');
+
+// Do not show admin bar to subscribers
+function noSubsAdminBar() {
+    $ourCurrentUser = wp_get_current_user();
+    if (count($ourCurrentUser->roles)==1 && $ourCurrentUser->roles[0] == 'subscriber') {
+        show_admin_bar(false);        
+    }
+}
+add_action('wp_loaded', 'noSubsAdminBar');
+
+function getOurHeaderUrl() {
+    return esc_url(site_url('/'));
+}
+add_filter('login_headerurl', 'getOurHeaderUrl');
+
+function getOurLoginCSS() {
+    wp_enqueue_style('custom-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
+    wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.abb848f25ecb7a1f0310.css'));    
+}
+add_action('login_enqueue_scripts', 'getOurLoginCSS');
+
+function getOurLoginTitle() {
+    return get_bloginfo('name');
+}
+add_filter('login_headertitle', 'getOurLoginTitle');

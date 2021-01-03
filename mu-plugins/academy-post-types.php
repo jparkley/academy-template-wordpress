@@ -5,6 +5,8 @@ function academy_post_types() {
     register_post_type('event', array(
         'show_in_rest' => true, // This post type is available within REST API
         'supports' => array('title','editor', 'excerpt'),
+        'capability_type' => 'event', // To grant event permissions. (default is 'post')
+        'map_meta_cap' => true, // To clarify which capabilities it has and when it needs (automatic map of capabilities)
         'has_archive' => true,
         'rewrite' => array(
             'slug' => 'events'
@@ -24,6 +26,8 @@ function academy_post_types() {
     register_post_type('program', array(
         'show_in_rest' => true,
         'supports' => array('title','editor', 'excerpt'),
+        'capability_type' => 'program',
+        'map_meta_cap' => true,
         'has_archive' => true,
         'rewrite' => array(
             'slug' => 'programs'
