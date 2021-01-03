@@ -71,10 +71,9 @@ class Search {
     }
 
     getResults() {
-        // CUSTOM REST API
-        console.log("root url: " , academyData.root_url + "/wp-json/academy/v1/search?term=" + this.searchField.val());
+        // CUSTOM REST API        
         $.getJSON(academyData.root_url + "/wp-json/academy/v1/search?term=" + this.searchField.val(), (results) => {
-            console.log("result: " ,results);
+            //console.log("result: " ,results);
             this.resultsDiv.html(`
             <div class="row">
                 <div class="one-third">
@@ -137,6 +136,7 @@ class Search {
         // }, () => {
         //     this.resultsDiv.html('<p>Unexpected error.  Please try again.</p>')
         // });        
+        //
     }
 
     addSearchHTML() {
