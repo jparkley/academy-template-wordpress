@@ -1,5 +1,6 @@
 <?php
 require get_theme_file_path('/inc/search-route.php');
+require get_theme_file_path('/inc/like-route.php');
 
 function academy_custom_rest() {
     register_rest_field('post', 'authorName', array(
@@ -120,7 +121,11 @@ add_filter('login_headerurl', 'getOurHeaderUrl');
 
 function getOurLoginCSS() {
     wp_enqueue_style('custom-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
+<<<<<<< HEAD
     wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.fe5a666d93a214e8cc9a.css'));    
+=======
+    wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.72238452041d5500582e.css'));    
+>>>>>>> like
 }
 add_action('login_enqueue_scripts', 'getOurLoginCSS');
 
