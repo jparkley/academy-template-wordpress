@@ -24,8 +24,8 @@ function academy_files() {
         wp_enqueue_script('main-academy-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);    
     } else {
         wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.9678b4003190d41dd438.js'), NULL, '1.0', true);
-        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.0b6c5e85d3f624ef8024.js'), NULL, '1.0', true);
-        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.0b6c5e85d3f624ef8024.css'));
+        wp_enqueue_script('main-academy-js', get_theme_file_uri('/bundled-assets/scripts.fe5a666d93a214e8cc9a.js'), NULL, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.fe5a666d93a214e8cc9a.css'));
     }
     // args (handle/name of main js, name to use in  js, array of data that we want available in js )
     wp_localize_script('main-academy-js', 'academyData', array(
@@ -120,7 +120,7 @@ add_filter('login_headerurl', 'getOurHeaderUrl');
 
 function getOurLoginCSS() {
     wp_enqueue_style('custom-google-fonts', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
-    wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.0b6c5e85d3f624ef8024.css'));    
+    wp_enqueue_style('our-main-styles', get_stylesheet_uri('/bundled-assets/styles.fe5a666d93a214e8cc9a.css'));    
 }
 add_action('login_enqueue_scripts', 'getOurLoginCSS');
 
